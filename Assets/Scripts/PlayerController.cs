@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerBody;
     private Vector3 inputVector;
-    public float speed = 10f;
+    public float speed = 100f;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         inputVector = new Vector3(Input.GetAxisRaw("Horizontal") * speed, 0, Input.GetAxisRaw("Vertical") * speed);
         playerBody.velocity = inputVector;
