@@ -23,6 +23,16 @@ public class PlayerController : MonoBehaviour
         playerBody.velocity = inputVector;
     }
 
+    // gameplay
+    void Update()
+    {
+        if (health == 0)
+        {
+            Debug.Log("Game Over!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
     // scoring
     void OnTriggerEnter(Collider other)
     {
@@ -38,6 +48,10 @@ public class PlayerController : MonoBehaviour
             health--;
             string strHealth = "Health: " + health;
             Debug.Log(strHealth);
+        }
+        if (other.tag == "Goal")
+        {
+            Debug.Log("You win!");
         }
     }
 }
