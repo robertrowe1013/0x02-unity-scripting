@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 inputVector;
     public float speed = 100f;
     private int score = 0;
+    public int health = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +29,15 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "Pickup")
         {
             score++;
-            string str = "Score: " + score;
-            Debug.Log(str);
+            string strScore = "Score: " + score;
+            Debug.Log(strScore);
             Object.Destroy(other.gameObject);
+        }
+        if (other.tag == "Trap")
+        {
+            health--;
+            string strHealth = "Health: " + health;
+            Debug.Log(strHealth);
         }
     }
 }
